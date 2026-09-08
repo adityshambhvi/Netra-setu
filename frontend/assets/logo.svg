@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" width="100%" height="100%">
+  <defs>
+    <style>
+      .coral-bar { fill: #f07849; rx: 10px; }
+      .green-eye { fill: #577c38; }
+      .white-pupil { fill: #ffffff; }
+      .hindi-text { font-family: 'Mukta', 'Arial Black', sans-serif; font-weight: 800; font-size: 54px; fill: #485c28; }
+      .tagline-text { font-family: 'Impact', 'Arial Black', sans-serif; font-size: 20px; fill: #000000; letter-spacing: 2.5px; }
+    </style>
+  </defs>
+
+  <!-- Concentric Horizontal Waves/Bars in Coral Orange -->
+  <!-- Top bar -->
+  <rect class="coral-bar" x="220" y="15" width="60" height="15" rx="7.5"/>
+  <!-- Row 2 -->
+  <rect class="coral-bar" x="180" y="38" width="140" height="15" rx="7.5"/>
+  <!-- Row 3 -->
+  <rect class="coral-bar" x="140" y="61" width="220" height="15" rx="7.5"/>
+  <!-- Row 4 -->
+  <rect class="coral-bar" x="100" y="84" width="300" height="15" rx="7.5"/>
+  <!-- Row 5 -->
+  <rect class="coral-bar" x="70" y="107" width="360" height="15" rx="7.5"/>
+  <!-- Row 6 (center wider) -->
+  <rect class="coral-bar" x="50" y="130" width="400" height="15" rx="7.5"/>
+  <!-- Row 7 -->
+  <rect class="coral-bar" x="70" y="153" width="360" height="15" rx="7.5"/>
+  <!-- Row 8 -->
+  <rect class="coral-bar" x="100" y="176" width="300" height="15" rx="7.5"/>
+  <!-- Row 9 -->
+  <rect class="coral-bar" x="140" y="199" width="220" height="15" rx="7.5"/>
+  <!-- Row 10 -->
+  <rect class="coral-bar" x="180" y="222" width="140" height="15" rx="7.5"/>
+  <!-- Bottom bar -->
+  <rect class="coral-bar" x="220" y="245" width="60" height="15" rx="7.5"/>
+
+  <!-- Center Eye Emblem Group -->
+  <g transform="translate(250, 137.5)">
+    <!-- White outer background circle mask -->
+    <circle cx="0" cy="0" r="76" fill="#ffffff" />
+    <!-- Olive Green Eye Circle -->
+    <circle class="green-eye" cx="0" cy="0" r="68" />
+    <!-- Pupil Cutout (white crescent / wedge shape) -->
+    <circle class="white-pupil" cx="-12" cy="-12" r="30" />
+    <!-- Inner green dot reflection -->
+    <circle fill="#577c38" cx="-8" cy="-8" r="12" />
+  </g>
+
+  <!-- Typography below logo -->
+  <text x="250" y="348" text-anchor="middle" class="hindi-text">नेत्र-सेतु</text>
+  <text x="250" y="392" text-anchor="middle" class="tagline-text">BRIDGING GAPS IN RURAL HEALTHCARE</text>
+</svg>

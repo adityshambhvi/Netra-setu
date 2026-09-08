@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netra-setu (नेत्र-सेतु) | Bridging Gaps in Rural Healthcare</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Brand Title Header (Matching Mockup) -->
+  <header class="brand-header">
+    <h1 class="brand-title">
+      Netra-setu <span class="hindi-sub">(नेत्र-सेतु )</span>
+    </h1>
+  </header>
+
+  <!-- Top Navigation Bar (Matching Mockup Colors & Font) -->
+  <nav class="main-nav">
+    <ul class="nav-container">
+      <li class="nav-item"><a href="#" class="nav-link active" data-target="section-hero">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-target="section-about">About netra-setu</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-target="section-model">Model insight</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-target="section-referral">Referral network</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-target="section-history">Patient history</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-target="section-calibration">Device calibration</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Body -->
+  <main class="container">
+
+    <!-- HERO SECTION (Exact Match to User Mockup) -->
+    <section id="section-hero" class="page-section active-section">
+      <div class="hero-layout">
+        <!-- Left Side Action Buttons -->
+        <div class="hero-actions">
+          <button class="btn-pill btn-pill-orange" id="btn-scan-patient">
+            Scan a new patient
+          </button>
+          <button class="btn-pill btn-pill-green" id="btn-upload-scan">
+            Upload the retina scan
+          </button>
+        </div>
+
+        <!-- Right Side Branding Logo & Tagline -->
+        <div class="hero-branding">
+          <img src="assets/logo.svg" alt="Netra-setu Logo" class="hero-logo-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT NETRA-SETU SECTION -->
+    <section id="section-about" class="page-section">
+      <div class="card">
+        <h2 class="section-title">About Netra-setu (नेत्र-सेतु)</h2>
+        <p class="section-subtitle">Empowering Primary Healthcare Centers (PHCs) & ASHA Workers with AI-Driven Retinal Diagnostic Gates.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+          <div>
+            <h3 style="color: var(--brand-teal); margin-bottom: 0.75rem;">Mission & Vision</h3>
+            <p style="color: var(--text-dark); margin-bottom: 1rem;">
+              Diabetic Retinopathy (DR) is a leading cause of preventable blindness in rural communities across India. 
+              <strong>Netra-setu</strong> provides a portable, dual-stage screening platform designed to operate seamlessly even in low-connectivity, non-mydriatic screening environments.
+            </p>
+            <p style="color: var(--text-muted);">
+              By enforcing front-line <strong>Stage A Image Quality Control</strong> before machine learning inference, Netra-setu guarantees that clinicians and automated models receive clear, diagnostically valid images—preventing false negatives and reducing unnecessary patient travel.
+            </p>
+          </div>
+
+          <div style="background-color: #f4f8f0; padding: 1.5rem; border-radius: 12px; border: 1px solid #dbe6d2;">
+            <h3 style="color: var(--primary-green-dark); margin-bottom: 0.75rem;">Dual-Stage AI Pipeline</h3>
+            <ul style="list-style-type: none; padding: 0;">
+              <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;">
+                <span style="font-weight: 700; color: var(--accent-orange);">01.</span>
+                <div>
+                  <strong>Stage A: Quality Gate</strong><br>
+                  Evaluates Laplacian variance, Tenengrad energy, corneal glare overexposure, and field-of-view (FOV) sensor occlusion in under 150ms.
+                </div>
+              </li>
+              <li style="display: flex; gap: 0.75rem;">
+                <span style="font-weight: 700; color: var(--primary-green);">02.</span>
+                <div>
+                  <strong>Stage B: DR Screening Engine</strong><br>
+                  Classifies retinal lesions (microaneurysms, hard exudates, hemorrhages) into 5 clinical severity grades with referral recommendations.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODEL INSIGHT SECTION -->
+    <section id="section-model" class="page-section">
+      <div class="card">
+        <h2 class="section-title">Model Insight & Diagnostics</h2>
+        <p class="section-subtitle">Real-time Tele-Ophthalmology Performance Metrics and Quality Gate Decision Boundaries.</p>
+
+        <div class="metrics-grid" style="margin-bottom: 2rem;">
+          <div class="metric-card">
+            <div class="metric-label">Quality Gate Latency</div>
+            <div class="metric-value">&lt; 140ms</div>
+            <small style="color: var(--text-muted);">On-device edge processing</small>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Recapture Precision</div>
+            <div class="metric-value">98.4%</div>
+            <small style="color: var(--text-muted);">Prevents ungradable scans</small>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">DR Sensitivity</div>
+            <div class="metric-value">96.8%</div>
+            <small style="color: var(--text-muted);">Referable Diabetic Retinopathy</small>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Specificity</div>
+            <div class="metric-value">94.1%</div>
+            <small style="color: var(--text-muted);">Healthy fundus validation</small>
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
+          <h3 style="color: var(--brand-teal); margin-bottom: 1rem;">Quality Control Parameters & Thresholds</h3>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Quality Test</th>
+                <th>Diagnostic Metric</th>
+                <th>Threshold Limit</th>
+                <th>Clinical Correction Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Defocus & Motion Blur</strong></td>
+                <td>Masked Laplacian Variance / Tenengrad</td>
+                <td>Blur &ge; 6.0 | Tenengrad &ge; 60.0</td>
+                <td>Stabilize camera with forehead rest & sharpen focus wheel</td>
+              </tr>
+              <tr>
+                <td><strong>Field-of-View (FOV)</strong></td>
+                <td>Retinal Disk Area Ratio</td>
+                <td>20.0% &le; FOV &le; 98.0%</td>
+                <td>Re-center camera lens directly over pupil aperture</td>
+              </tr>
+              <tr>
+                <td><strong>Illumination & Glare</strong></td>
+                <td>Histogram Saturated Pixel Ratio</td>
+                <td>Luminance &ge; 30, Overexposure &lt; 12%</td>
+                <td>Adjust LED flash brightness & tilt lens away from corneal flash</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERRAL NETWORK SECTION -->
+    <section id="section-referral" class="page-section">
+      <div class="card">
+        <h2 class="section-title">Rural Tele-Ophthalmology Referral Network</h2>
+        <p class="section-subtitle">Connecting Village PHC Operators directly with Tertiary District Hospitals.</p>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+          <div>
+            <h3 style="color: var(--brand-teal); margin-bottom: 1rem;">District Tele-Consultation Hubs</h3>
+            <div style="background-color: #f8faf6; border: 1px solid #dce8d2; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h4 style="color: var(--primary-green-dark);">AIIMS Apex Eye Care Center</h4>
+                <span class="status-badge badge-pass">Online (4 Specialists)</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;">Dedicated Tele-DR Review Desk | Avg Response: 15 mins</p>
+            </div>
+
+            <div style="background-color: #f8faf6; border: 1px solid #dce8d2; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h4 style="color: var(--primary-green-dark);">District General Hospital - Eye Department</h4>
+                <span class="status-badge badge-pass">Online (2 Specialists)</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;">Retina Specialist Triage Desk | Avg Response: 30 mins</p>
+            </div>
+          </div>
+
+          <div style="background-color: #ffffff; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
+            <h3 style="color: var(--brand-teal); margin-bottom: 0.75rem;">Create Referral Alert</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">Transmits patient retina scans and Stage A quality reports to district specialists.</p>
+            <button class="btn btn-accent" id="btn-create-referral" style="width: 100%;">Transmit Tele-Referral</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATIENT HISTORY SECTION -->
+    <section id="section-history" class="page-section">
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <div>
+            <h2 class="section-title">Patient Screening History</h2>
+            <p class="section-subtitle" style="margin-bottom: 0;">Centralized Screening Records & Diagnostic Reports</p>
+          </div>
+          <div style="width: 320px;">
+            <input type="text" id="search-patient-input" class="form-control" placeholder="Search by name, ID, or village...">
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Patient ID</th>
+              <th>Name & Age</th>
+              <th>Village / PHC</th>
+              <th>Scan Date</th>
+              <th>Stage A Gate</th>
+              <th>Stage B Diagnosis</th>
+              <th>Action Status</th>
+            </tr>
+          </thead>
+          <tbody id="patient-table-body">
+            <!-- Dynamically rendered via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- DEVICE CALIBRATION SECTION -->
+    <section id="section-calibration" class="page-section">
+      <div class="card">
+        <h2 class="section-title">Device Calibration & Lens Alignment</h2>
+        <p class="section-subtitle">Ensure fundus camera attachment optics and smartphone sensors meet Stage A requirements.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+          <div>
+            <h3 style="color: var(--brand-teal); margin-bottom: 1rem;">Pre-Screening Optical Checklist</h3>
+            <ul style="list-style-type: none; padding: 0;">
+              <li style="margin-bottom: 0.75rem;">✅ Clean portable fundus camera condenser lens with microfiber cloth.</li>
+              <li style="margin-bottom: 0.75rem;">✅ Verify smartphone camera lens center aligns with 20D/28D lens focal point.</li>
+              <li style="margin-bottom: 0.75rem;">✅ Darken patient room environment to allow natural pupil dilation.</li>
+              <li style="margin-bottom: 0.75rem;">✅ Set LED illumination intensity to Level 2 (30-40 Lux).</li>
+            </ul>
+          </div>
+
+          <div style="background-color: #222; border-radius: 16px; padding: 1.5rem; text-align: center; color: #fff;">
+            <h4 style="color: #92b872; margin-bottom: 0.5rem;">Lens Target Focus Test</h4>
+            <div style="border: 2px dashed #598234; height: 180px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 1rem 0;">
+              <div style="width: 100px; height: 100px; border: 2px solid #f07849; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #f07849; font-weight: 700;">
+                Target Retinal Ring
+              </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #aaa;">Align camera until the red ring matches the fundus optic disk border.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: SCAN A NEW PATIENT -->
+  <div class="modal-overlay" id="modal-scan">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h2 style="color: var(--brand-teal); margin-bottom: 0.5rem;">Scan A New Patient</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Register frontline patient details and activate live camera stream.</p>
+
+      <form id="patient-registration-form" onsubmit="event.preventDefault();">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Patient Full Name</label>
+            <input type="text" class="form-control" placeholder="e.g. Ramesh Kumar" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Age & Gender</label>
+            <input type="text" class="form-control" placeholder="e.g. 54, Male" required>
+          </div>
+        </div>
+
+        <!-- Camera Live Feed Box -->
+        <div style="margin: 1.5rem 0; background: #000; border-radius: 12px; min-height: 280px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+          <video id="webcam-feed" autoplay playsinline style="width: 100%; height: 280px; object-fit: cover; display: none;"></video>
+          <canvas id="webcam-canvas" style="display: none;"></canvas>
+
+          <div id="camera-sim-box" style="display: flex; flex-direction: column; align-items: center; color: #fff; padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">📷</div>
+            <p style="font-weight: 600; color: #92b872;">Fundus Camera Optical Stream</p>
+            <small style="color: #888;">Position patient eye in central optical zone</small>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 1rem;">
+          <button type="button" class="btn btn-outline modal-close">Cancel</button>
+          <button type="button" class="btn btn-accent" id="btn-capture-frame">Capture & Analyze Scan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: UPLOAD RETINA SCAN (STAGE A EVALUATOR) -->
+  <div class="modal-overlay" id="modal-upload">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h2 style="color: var(--brand-teal); margin-bottom: 0.5rem;">Upload Retina Scan</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1rem;">Select or drop a retinal fundus image for Stage A Image Quality Gate evaluation.</p>
+
+      <div class="dropzone" id="upload-dropzone">
+        <div class="dropzone-icon">📁</div>
+        <h4 style="color: var(--primary-green-dark); margin-bottom: 0.3rem;">Drag and drop retinal image here</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Supports JPEG, PNG, TIFF fundus captures</p>
+        <input type="file" id="retina-file-input" accept="image/*" style="display: none;">
+      </div>
+
+      <!-- Container for dynamic Stage A quality feedback -->
+      <div id="quality-results" style="display: none;"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -7,6 +7,7 @@ Endpoints:
 
 import io
 import logging
+# pyrefly: ignore [missing-import]
 from flask import Flask, jsonify, request
 from PIL import Image
 

@@ -31,6 +31,7 @@ class MatlabScreeningBridge:
             return False
 
         try:
+            # pyrefly: ignore [missing-import]
             import matlab.engine
 
             logger.info("Connecting to MATLAB Engine R2026a...")
