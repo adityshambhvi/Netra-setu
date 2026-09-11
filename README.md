@@ -5,6 +5,12 @@ Netra-setu is a quality-aware, explainable DR screening and referral assistant f
 *Organization: MathWorks | Theme: MedTech / BioTech / HealthTech | Category: Software*
 
 ---
+<img width="1897" height="992" alt="image" src="https://github.com/user-attachments/assets/a9187fff-9751-4f41-baf5-dda7e1f01817" />
+<img width="1916" height="1052" alt="image" src="https://github.com/user-attachments/assets/d767ff9e-8c87-4d10-904f-00d743d96737" />
+<img width="1913" height="1083" alt="image" src="https://github.com/user-attachments/assets/2087fde7-111f-4201-ada0-146fe6c254d4" />
+
+
+
 
 ## 1. Project Summary
 
