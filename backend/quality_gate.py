@@ -46,12 +46,12 @@ class RetinaQualityGate:
 
     def __init__(
         self,
-        blur_threshold: float = 6.0,
-        tenengrad_threshold: float = 60.0,
+        blur_threshold: float = 10.0,
+        tenengrad_threshold: float = 80.0,
         min_fov_ratio: float = 0.20,
         max_fov_ratio: float = 0.98,
-        min_mean_luminance: float = 30.0,
-        max_underexposure_pct: float = 35.0,
+        min_mean_luminance: float = 32.0,
+        max_underexposure_pct: float = 30.0,
         max_overexposure_pct: float = 12.0,
     ):
         self.blur_threshold = blur_threshold
@@ -181,7 +181,7 @@ class RetinaQualityGate:
         if mask_pixels > 100:
             masked_green = green_chan[mask]
             mean_luminance = float(np.mean(masked_green))
-            underexposed_count = int(np.sum(masked_green < 25))
+            underexposed_count = int(np.sum(masked_green < 35))
             overexposed_count = int(np.sum(masked_green > 235))
             underexposure_pct = float((underexposed_count / mask_pixels) * 100.0)
             overexposure_pct = float((overexposed_count / mask_pixels) * 100.0)

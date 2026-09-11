@@ -34,12 +34,12 @@ function [result, enhancedImage] = checkImageQuality(inputImage, params)
     end
 
     % Set default empirical thresholds
-    if ~isfield(params, 'blur_threshold'),        params.blur_threshold = 6.0; end
-    if ~isfield(params, 'tenengrad_threshold'),   params.tenengrad_threshold = 60.0; end
+    if ~isfield(params, 'blur_threshold'),        params.blur_threshold = 10.0; end
+    if ~isfield(params, 'tenengrad_threshold'),   params.tenengrad_threshold = 80.0; end
     if ~isfield(params, 'min_fov_ratio'),         params.min_fov_ratio = 0.20; end
     if ~isfield(params, 'max_fov_ratio'),         params.max_fov_ratio = 0.98; end
-    if ~isfield(params, 'min_mean_luminance'),    params.min_mean_luminance = 30.0; end
-    if ~isfield(params, 'max_underexposure_pct'), params.max_underexposure_pct = 35.0; end
+    if ~isfield(params, 'min_mean_luminance'),    params.min_mean_luminance = 32.0; end
+    if ~isfield(params, 'max_underexposure_pct'), params.max_underexposure_pct = 30.0; end
     if ~isfield(params, 'max_overexposure_pct'),  params.max_overexposure_pct = 12.0; end
 
     % Load image if a file path is provided
@@ -109,7 +109,7 @@ function [result, enhancedImage] = checkImageQuality(inputImage, params)
     if retinalPixelsCount > 100
         maskIntensities = greenChan(retinalMask);
         meanLuminance = mean(maskIntensities);
-        underexposedCount = sum(maskIntensities < 25);
+        underexposedCount = sum(maskIntensities < 35);
         overexposedCount  = sum(maskIntensities > 235);
         
         underexposurePct = (underexposedCount / retinalPixelsCount) * 100.0;

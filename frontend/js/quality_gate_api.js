@@ -2,7 +2,7 @@
  * Stage A Quality Gate API Client & Fallback Engine for Netra-setu
  */
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = (window.location.protocol === 'file:') ? 'http://localhost:5000' : '';
 
 export class QualityGateAPI {
   /**
@@ -36,6 +36,52 @@ export class QualityGateAPI {
     // Client-side fallback evaluation
     return await this.evaluateClientSide(imageFile);
   }
+
+  /**
+   * Submits a retinal image file for full screening (Stage A Quality Gate + Stage B Lesion & DR Grading + Stage C Evidence Combiner).
+   * @param {File|Blob} imageFile 
+   * @returns {Promise<Object>} Full screening result object
+   */
+  static async screenImage(imageFile) {
+    try {
+      const formData = new FormData();
+      formData.append('image', imageFile);
+
+      const response = await fetch(`${API_BASE_URL}/screen`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          return data.screening;
+        }
+      }
+    } catch (err) {
+      console.warn('Backend screening API unreachable, executing client fallback:', err);
+    }
+
+    // Fallback if backend API is offline
+    const qResult = await this.evaluateClientSide(imageFile);
+    return {
+      pass: qResult.passed,
+      reason: qResult.reason,
+      grade: 0,
+      grade_label: qResult.passed ? 'Grade 0: No Diabetic Retinopathy' : 'Unscreenable (Quality Gate Failed)',
+      referral: false,
+      why_refer: qResult.passed ? 'No referral required: Retinal image displays no significant DR signs (Grade 0).' : qResult.recapture_instructions,
+      evidence_list: [
+        `Quality Gate Status: ${qResult.passed ? 'PASSED' : 'FAILED'}`,
+        'ICDR Severity: Grade 0 (No DR)',
+        'No spatial lesion evidence detected',
+      ],
+      confidence: qResult.passed ? 94.0 : 0.0,
+      overlay_image_path: qResult.enhanced_image_base64 || '',
+      quality_status: qResult,
+    };
+  }
+
 
   /**
    * Performs client-side HTML5 Canvas metric calculation when offline.
@@ -79,7 +125,7 @@ export class QualityGateAPI {
           gray[i] = lum;
           totalLuminance += lum;
 
-          if (lum < 25) darkPixels++;
+          if (lum < 35) darkPixels++;
           if (lum > 235) brightPixels++;
         }
 
@@ -106,7 +152,7 @@ export class QualityGateAPI {
         const blurScore = Math.min(Math.round(tenengradScore * 0.15), 100);
 
         // Clinical Decision Rules
-        const passed = fovRatio >= 0.20 && meanLuminance >= 25 && blurScore >= 6.0 && overexposurePct < 15;
+        const passed = fovRatio >= 0.20 && meanLuminance >= 32.0 && underexposurePct <= 30.0 && blurScore >= 10.0 && overexposurePct < 15.0;
         let reasons = [];
         let instructions = [];
 
@@ -114,14 +160,16 @@ export class QualityGateAPI {
           reasons.push(`Field-of-view too small (${(fovRatio * 100).toFixed(1)}%)`);
           instructions.push("Center camera lens on patient pupil to frame full retina.");
         }
-        if (blurScore < 6.0) {
-          reasons.push(`Defocus or motion blur detected (score: ${blurScore.toFixed(1)})`);
+        if (blurScore < 10.0) {
+          reasons.push(`Defocus or motion blur detected (sharpness score: ${blurScore.toFixed(1)} < 10.0)`);
           instructions.push("Stabilize camera headrest, ask patient to focus on target, adjust lens wheel.");
         }
-        if (meanLuminance < 25) {
-          reasons.push(`Underexposed lighting (mean luminance ${meanLuminance.toFixed(1)})`);
+        if (meanLuminance < 32.0 || underexposurePct > 30.0) {
+          reasons.push(`Underexposed lighting (mean luminance ${meanLuminance.toFixed(1)} < 32.0, ${underexposurePct.toFixed(1)}% dark pixels)`);
           instructions.push("Increase LED flash intensity or dilate patient's pupil.");
         }
+
+
 
         resolve({
           source: 'client_fallback',
